@@ -1,0 +1,174 @@
+<!-- ======================= index.html ======================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gas Management System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="loginPage" class="login-container">
+<h2>Gas Management System Login</h2>
+<select id="userRole">
+<option value="staff">Staff</option>
+<option value="customer">Customer</option>
+</select>
+<input type="text" id="username" placeholder="Username">
+<input type="password" id="password" placeholder="Password">
+<button onclick="loginUser()">Login</button>
+<p id="loginError"></p>
+</div>
+
+
+
+<div id="staffDashboard" style="display:none">
+<header>
+<h1>Staff Dashboard</h1>
+<button onclick="logout()" class="logout">Logout</button>
+</header>
+
+<nav>
+<a href="#customers">Customers</a>
+<a href="#booking">Booking</a>
+<a href="#cylinders">Cylinders</a>
+<a href="#delivery">Delivery</a>
+<a href="#billing">Billing</a>
+<a href="#stock">Stock</a>
+<a href="#reports">Reports</a>
+<a href="#suppliers">Suppliers</a>
+</nav>
+
+<div class="container">
+
+<div class="card" id="customers">
+<h2>Customer Management</h2>
+<input type="text" id="custName" placeholder="Customer Name">
+<input type="text" id="custPhone" placeholder="Phone">
+<input type="text" id="custAddress" placeholder="Address">
+<button onclick="addCustomer()">Add Customer</button>
+
+<table id="customerTable">
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Address</th>
+<th>Action</th>
+</tr>
+</table>
+</div>
+
+<div class="card" id="booking">
+<h2>Gas Booking</h2>
+<input type="text" id="bookingCustomer" placeholder="Customer Name">
+<select id="bookingQty">
+<option>1 Cylinder</option>
+<option>2 Cylinders</option>
+</select>
+<button onclick="bookGas()">Book Gas</button>
+
+<table id="bookingTable">
+<tr>
+<th>ID</th>
+<th>Customer</th>
+<th>Quantity</th>
+<th>Status</th>
+</tr>
+</table>
+</div>
+
+<div class="card" id="cylinders">
+<h2>Cylinder Management</h2>
+<input type="text" id="cylinderId" placeholder="Cylinder ID">
+<select id="cylinderStatus">
+<option>Full</option>
+<option>Empty</option>
+</select>
+<button onclick="addCylinder()">Add Cylinder</button>
+<ul id="cylinderList"></ul>
+</div>
+
+<div class="card" id="delivery">
+<h2>Delivery</h2>
+<input type="number" id="deliveryId" placeholder="Booking ID">
+<select id="deliveryStatus">
+<option>Pending</option>
+<option>Delivered</option>
+</select>
+<button onclick="updateDelivery()">Update Status</button>
+</div>
+
+<div class="card" id="billing">
+<h2>Billing</h2>
+<input type="text" id="billCustomer" placeholder="Customer Name">
+<input type="number" id="billAmount" placeholder="Amount">
+<button onclick="generateBill()">Generate Bill</button>
+<button onclick="recordPayment()">Record Payment</button>
+</div>
+
+<div class="card" id="stock">
+<h2>Stock</h2>
+<p id="stockCount">Available Cylinders: 120</p>
+<button onclick="updateStock()">Update Stock</button>
+</div>
+
+<div class="card" id="reports">
+<h2>Reports</h2>
+<button onclick="showReport('Daily')">Daily Report</button>
+<button onclick="showReport('Monthly')">Monthly Report</button>
+</div>
+
+<div class="card" id="suppliers">
+<h2>Supplier Management</h2>
+<input type="text" id="supplierName" placeholder="Supplier Name">
+<input type="text" id="supplierContact" placeholder="Contact">
+<button onclick="addSupplier()">Add Supplier</button>
+<ul id="supplierList"></ul>
+</div>
+
+</div>
+</div>
+
+
+
+<div id="customerDashboard" style="display:none">
+<header>
+<h1>Customer Dashboard</h1>
+<button onclick="logout()" class="logout">Logout</button>
+</header>
+
+<div class="container">
+
+<div class="card">
+  <h2>Book Gas Cylinder</h2>
+  <input type="text" id="custBookingName" placeholder="Your Name">
+  <input type="number" id="custBookingQty" placeholder="Enter number of cylinders">
+  <button onclick="customerBookGas()">Book Gas</button>
+</div>
+
+<div class="card">
+<h2>My Booking Status</h2>
+<table id="customerBookingTable">
+<tr>
+<th>ID</th>
+<th>Quantity</th>
+<th>Status</th>
+</tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Notifications</h2>
+<p>Delivery updates will appear here.</p>
+</div>
+
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
